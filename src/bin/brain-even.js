@@ -1,5 +1,5 @@
 #!/usr/bin/env nodejs
 
-import game from '../games/even';
+import startGame from '../games/even';
 
-game();
+startGame();

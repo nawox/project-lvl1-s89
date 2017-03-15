@@ -1,17 +1,17 @@
 import ask from 'readline-sync';
 import getUserName from '..';
 
-const winMessage = (userName) => {
+const showWinMessage = (userName) => {
   console.log(`Congratulations, ${userName}!`);
   return 0;
 };
 
-const wrongMessage = (userName, userAnswer, answer) => {
+const showWrongMessage = (userName, userAnswer, answer) => {
   console.log(`'${userAnswer}' is wrong answer. Correct answer was '${answer}'\n Let's try again ${userName}!`);
   return 0;
 };
 
-const rightMessage = () => {
+const showRightMessage = () => {
   console.log('Correct!\n');
   return 0;
 };
@@ -27,7 +27,7 @@ const isEven = (number) => {
   return 'no';
 };
 
-const quest = () => {
+const getQuest = () => {
   const number = Math.floor(Math.random() * 100);
   const struct = {
     question: number,
@@ -36,19 +36,19 @@ const quest = () => {
   return struct;
 };
 
-const round = (attempt, userName) => {
+const startRound = (attempt, userName) => {
   if (attempt === 0) {
-    winMessage(userName);
+    showWinMessage(userName);
     return 0;
   }
-  const questAns = quest();
+  const questAns = getQuest();
   const userAnswer = ask.question(`Question: ${questAns.question} `);
   if (userAnswer !== questAns.answer) {
-    wrongMessage(userName, userAnswer, questAns.answer);
+    showWrongMessage(userName, userAnswer, questAns.answer);
     return 0;
   }
-  rightMessage();
-  round(attempt - 1, userName);
+  showRightMessage();
+  startRound(attempt - 1, userName);
   return 0;
 };
 
@@ -57,5 +57,5 @@ export default () => {
   console.log(rule);
   const userName = getUserName();
 
-  round(attemptsCount, userName);
+  startRound(attemptsCount, userName);
 };
