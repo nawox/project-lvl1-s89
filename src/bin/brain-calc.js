@@ -1,6 +1,6 @@
 #!/usr/bin/env nodejs
 
 import startGame from '../games/game';
-import gameCond from '../games/even';
+import gameCond from '../games/calc';
 
 startGame(gameCond());
