@@ -1,3 +1,5 @@
+import startGame from '../flow/game';
+
 const gameRule = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (x, y) => {
@@ -26,5 +28,5 @@ export default () => {
     getQuestAnswer: getQuest,
     rule: gameRule,
   };
-  return gameCond;
+  startGame(gameCond);
 };

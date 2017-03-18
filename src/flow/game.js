@@ -18,17 +18,16 @@ const attemptsCount = 3;
 const startRound = (attempt, userName, gameCond) => {
   if (attempt === 0) {
     showWinMessage(userName);
-    return 0;
+    return;
   }
   const questAnswer = gameCond.getQuestAnswer();
   const userAnswer = ask.question(` Question: ${questAnswer.question}\n Your answer: `);
   if (userAnswer !== questAnswer.answer) {
     showWrongMessage(userName, userAnswer, questAnswer.answer);
-    return 0;
+    return;
   }
   showRightMessage();
   startRound(attempt - 1, userName, gameCond);
-  return 0;
 };
 
 export default (gameCond) => {

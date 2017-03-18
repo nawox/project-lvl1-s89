@@ -1,12 +1,8 @@
+import startGame from '../flow/game';
 
 const gameRule = 'Answer "yes" if number even otherwise answer "no".';
 
-const isEven = (number) => {
-  if (number % 2 === 0) {
-    return true;
-  }
-  return false;
-};
+const isEven = number => number % 2 === 0;
 
 const getQuest = () => {
   const number = Math.floor(Math.random() * 100);
@@ -22,5 +18,5 @@ export default () => {
     rule: gameRule,
     getQuestAnswer: getQuest,
   };
-  return gameCond;
+  startGame(gameCond);
 };

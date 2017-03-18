@@ -1,3 +1,5 @@
+import startGame from '../flow/game';
+
 const gameRule = 'What is the result of the expression?';
 
 const getExpression = (num1, num2) => {
@@ -28,7 +30,7 @@ const getExpression = (num1, num2) => {
     }
 
     default: {
-      return 0;
+      return;
     }
   }
 };
@@ -50,5 +52,5 @@ export default () => {
     getQuestAnswer: getQuest,
     rule: gameRule,
   };
-  return gameCond;
+  startGame(gameCond);
 };
