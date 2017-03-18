@@ -10,7 +10,10 @@ const balanceNumber = (x) => {
   if (mod === 0) {
     return averageArray.join('');
   }
-  const [first, rest] = [averageArray.slice(0, averageArray.length - mod), averageArray.slice(-mod)];
+  const [first, rest] = [
+    averageArray.slice(0, averageArray.length - mod),
+    averageArray.slice(-mod),
+  ];
   const resultArray = [...first, ...rest.map(item => item + 1)];
   return resultArray.join('');
 };

@@ -30,7 +30,7 @@ const getExpression = (num1, num2) => {
     }
 
     default: {
-      return;
+      return undefined;
     }
   }
 };
