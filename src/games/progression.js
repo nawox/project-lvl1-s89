@@ -7,8 +7,7 @@ const createSequence = (acc, item, length, step) => {
     return acc;
   }
   const newItem = item + step;
-  acc.push(newItem);
-  return createSequence(acc, newItem, length - 1, step);
+  return createSequence([...acc, newItem], newItem, length - 1, step);
 };
 
 const getAnswer = (begin, step) => {
