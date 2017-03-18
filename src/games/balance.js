@@ -1,6 +1,6 @@
 import startGame from '../flow/game';
 
-const gameRule = 'Find the greatest common divisor of given numbers.';
+const gameRule = 'Balance the given number';
 
 const balanceNumber = (x) => {
   const numberArray = String(x).split('');
