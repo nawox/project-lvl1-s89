@@ -1,6 +1,23 @@
 #!/usr/bin/env nodejs
 
-import getUserName from '..';
+import readlineSync from 'readline-sync';
+import even from '../games/even';
+import calc from '../games/calc';
+import gcd from '../games/gcd';
+import balance from '../games/balance';
+import progression from '../games/progression';
+import prime from '../games/prime';
 
-console.log('Welcome to the Brain Games!');
-getUserName();
+const games = {
+  Even: even,
+  Calculate: calc,
+  GCD: gcd,
+  Balance: balance,
+  Progression: progression,
+  Prime: prime,
+};
+
+const gamesList = ['Even', 'Calculate', 'GCD', 'Balance', 'Progression', 'Prime'];
+const index = readlineSync.keyInSelect(gamesList, 'Choise the game');
+const startGame = games[gamesList[index]];
+startGame();
